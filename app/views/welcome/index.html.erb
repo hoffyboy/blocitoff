@@ -3,7 +3,7 @@
   <h1>Blocitoff</h1>
   <p>Blocitoff is self-destructing to-do list to keep you focused on the things that really matter.</p>
   <% if user_signed_in? %>
-    <%= link_to "Edit Profile", edit_user_registration_path, :class => "btn-md btn btn-primary"  %>
+    <%= link_to "User Profile", user_path(current_user.id), :class => "btn-md btn btn-primary"  %>
   <% else %>
   <p>
     <%= link_to "Sign In", new_user_session_path, class: 'btn btn-primary' %> or

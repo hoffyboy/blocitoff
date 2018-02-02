@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(users)
 
-    users_show_path
+    user_path(current_user.id)
 
   end
 end

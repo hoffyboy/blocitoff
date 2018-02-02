@@ -1,28 +1,54 @@
-<h1>My todos</h1>
+<br><br>
+<h1 class="text-center">My todos</h1>
 <br>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th>Days left</th>
-      <th>Complete</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Learn Haskell</td>
-      <td>3</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Change oil</td>
-      <td>2</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Buy beer</td>
-      <td>5</td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
+<div class="row justify-content-center">
+  <div class="col-md-8 col-md-offset-2">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Description</th>
+          <th>Days left</th>
+          <th>Complete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @user.items.each do |item| %>
+          <%= render partial: 'items/item', locals: { item: item } %>
+        <% end %>
+        <%= render partial: 'items/form' %>
+      </tbody>
+    </table>
+    <% if current_user.id == params[:id].to_i %>
+      <%= button_to "Add New Line", new_user_item_path(@user), method: :get, remote: true, class: :center %>
+    <% end %>
+  </div>
+</div>
+<script type="text/javascript">
+  var postNewItem = function() {
+    $('.new_item').change(function() {
+      var val = $(this).val();
+      var request = $.ajax({
+        url: "/users/3/items",
+        type: 'POST',
+        dataType: "json",
+        data: { item: {name: $(this).val() }},
+        complete: location.reload()
+      })
+    })
+  };
+
+
+  postNewItem();
+
+    $('.item_name').change(function() {
+      var id = $(this).attr("id");
+      console.log(id);
+
+      $.ajax({
+        url: "/users/3/items/" + id,
+        type: 'PUT',
+        dataType: "json",
+        data:  { item: {name: $(this).val()}}
+      })
+    });
+</script>

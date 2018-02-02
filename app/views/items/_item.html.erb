@@ -1,0 +1,9 @@
+<tr>
+  <% if current_user.id == params[:id].to_i %>
+    <td><%= text_field(:item, :name, id: item.id, class: :item_name, value: item.name, autocomplete: :off) %></td>
+  <% else %>
+    <td><%= text_field(:item, :name, id: item.id, class: :item_name, value: item.name, autocomplete: :off, readonly: true) %></td>
+  <% end %>
+  <td>3</td>
+  <td></td>
+</tr>
