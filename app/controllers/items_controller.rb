@@ -7,12 +7,10 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.save
-        # redirect_to user_path(params[:user_id])
-        format.js { render layout: false }
-        format.json {render json: @item}
+        format.html #{redirect_to user_path(params[:user_id])}
+        render json: {item: @item}
       else
-        flash.now[:alert] = "There was an error saving the item. Please try again."
-        # redirect_back
+        format.html {flash.now[:alert] = "There was an error saving the item. Please try again."}
       end
     end
   end
@@ -24,6 +22,19 @@ class ItemsController < ApplicationController
     else
       render json: {status: 'failed'}, status: 400
     end
+  end
+
+  def destroy
+    @user = User.find(params[:user_id])
+    @item = Item.find(params[:id])
+
+    # respond_to do |format|
+      if @item.destroy
+        flash.now[:alert] = "destroyed"
+      else
+        flash.now[:alert] = "There was an error deleting the item."
+      end
+    # end
   end
 
   private

@@ -1,9 +1,10 @@
 <tr>
   <% if current_user.id == params[:id].to_i %>
-    <td><%= text_field(:item, :name, id: item.id, class: :item_name, value: item.name, autocomplete: :off) %></td>
+    <td class="col-xs-8"><%= text_field(:item, :name, id: item.id, class: :item_name, value: item.name, autocomplete: :off) %></td>
+    <td>3</td>
+    <td><%= link_to "", user_item_path(@user, item.id), method: :delete, class: 'glyphicon glyphicon-ok', remote: true %></td>
   <% else %>
-    <td><%= text_field(:item, :name, id: item.id, class: :item_name, value: item.name, autocomplete: :off, readonly: true) %></td>
+    <td class="col-xs-10"><%= text_field(:item, :name, id: item.id, class: :item_name, value: item.name, autocomplete: :off, readonly: true) %></td>
+    <td>3</td>
   <% end %>
-  <td>3</td>
-  <td></td>
 </tr>
