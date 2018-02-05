@@ -7,7 +7,7 @@
       <thead>
         <tr>
           <th>Description</th>
-          <th>Days left</th>
+          <th>Expires in</th>
           <% if current_user.id == params[:id].to_i %>
             <th>Complete</th>
           <% end %>
@@ -45,7 +45,7 @@
     console.log(json.item.name);
     return '<tr> \
     <td class="col-xs-8"><input id="' + json.item.id + '" class="item_name" value="' + json.item.name + '" autocomplete="off" "type="text" name="item[name]"></td> \
-    <td>3</td> \
+    <td>7 days</td> \
     <td><a class="glyphicon glyphicon-ok" data-remote="true" rel="nofollow" data-method="delete" href="/users/' + json.item.user_id + '/items/' + json.item.id + '"></a></td> \
     </tr>'
   };
