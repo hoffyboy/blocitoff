@@ -1,0 +1,16 @@
+<br>
+<h1>All Users</h1>
+<br>
+<% @users.each do |user| %>
+<div class="media">
+  <div class="media-body">
+    <h4 class="media-heading">
+      <%= link_to user.email, user_path(user) %>
+    </h4>
+    <small>
+      Last updated <%= time_ago_in_words(user.items.last.created_at) %> ago <br>
+      <%= user.items.count %> todos
+    </small>
+  </div>
+</div>
+<% end %>

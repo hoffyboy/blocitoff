@@ -1,7 +1,7 @@
 <% if current_user.id == params[:user_id].to_i %>
   <tr>
-    <td><input type="text" class="new_item" autocomplete="off" /></td>
-    <td></td>
-    <td></td>
+    <td class="col-xs-8"><input type="text" class="new_item" autocomplete="off" autofocus /></td>
+    <td>7 days</td>
+    <td><%= link_to "", user_path(params[:user_id]), method: :get, class: 'glyphicon glyphicon-ok', remote: true %></a></td>
   </tr>
 <% end %>

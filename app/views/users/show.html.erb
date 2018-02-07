@@ -6,8 +6,8 @@
     <table class="table table-bordered table-striped">
       <thead>
         <tr>
-          <th>Description</th>
-          <th>Expires in</th>
+          <th class="col-xs-9">Description</th>
+          <th class="col-xs-2">Expires in</th>
           <% if current_user.id == params[:id].to_i %>
             <th>Complete</th>
           <% end %>
@@ -25,48 +25,8 @@
     <% end %>
   </div>
 </div>
-<script type="text/javascript">
-  var postNewItem = function() {
-    $('.new_item').change(function() {
-      var val = $(this).val();
-      var request = $.ajax({
-        url: "/users/" + <%= @user.id %> + "/items",
-        type: 'POST',
-        data: { item: {name: $(this).val() }},
-        success: function(json){
-          $('table tbody').children().last().remove();
-          $('table tbody').append(addRow(json));
-        }
-      })
-    })
-  };
 
-  function addRow(json){
-    console.log(json.item.name);
-    return '<tr> \
-    <td class="col-xs-8"><input id="' + json.item.id + '" class="item_name" value="' + json.item.name + '" autocomplete="off" "type="text" name="item[name]"></td> \
-    <td>7 days</td> \
-    <td><a class="glyphicon glyphicon-ok" data-remote="true" rel="nofollow" data-method="delete" href="/users/' + json.item.user_id + '/items/' + json.item.id + '"></a></td> \
-    </tr>'
-  };
-  postNewItem();
+<script>
+  editOrDeleteItem();
 
-    $('.item_name').change(function() {
-      var id = $(this).attr("id");
-      console.log(id);
-
-      if ($(this).val() == "") {
-        $.ajax({
-          url: "/users/"+ <%= @user.id %> + "/items/" + id,
-          type: 'DELETE',
-          success: $('table tbody').find('#'+id).parent().parent().remove()
-        })
-      } else {
-        $.ajax({
-          url: "/users/"+ <%= @user.id %> + "/items/" + id,
-          type: 'PUT',
-          data:  { item: {name: $(this).val()}}
-        })
-      }
-    });
 </script>
