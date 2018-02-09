@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :check_for_expired_todos
+  before_action :destroy_expired_items
 
   def index
     @users = User.all
