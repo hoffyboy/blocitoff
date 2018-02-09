@@ -8,8 +8,7 @@ var postNewItem = function() {
       success: function(json){
         $('table tbody').children().last().remove();
         $('table tbody').append(json.data);
-        $('.item_name').off();
-        editOrDeleteItem();
+        editOrDeleteItem($('table tbody').children().last());
       }
     })
   })
@@ -17,8 +16,8 @@ var postNewItem = function() {
 
 postNewItem();
 
-var editOrDeleteItem = function() {
-  $(".item_name").change(function() {
+var editOrDeleteItem = function(el) {
+  el.change(function() {
     var id = $(this).attr("id");
 
     if ($(this).val() == "") {

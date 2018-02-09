@@ -7,31 +7,35 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 if !User.any?
   Tommy = User.create!(
+    name: 'Tommy Chang',
     email:    'tommy@example.com',
     password: '123456',
     confirmed_at: Time.now
   )
 
   Albert = User.create!(
+    name: 'Albert Smith',
     email:    'albert@example.com',
     password: '123456',
     confirmed_at: Time.now
   )
 
   Sammy = User.create!(
+    name: 'Sammy Blong',
     email:    'sammy@example.com',
     password: '123456',
     confirmed_at: Time.now
   )
 
   Beth = User.create!(
+    name: 'Beth Rainer',
     email:    'beth@example.com',
     password: '123456',
     confirmed_at: Time.now
   )
 end
 
-30.times do
+40.times do
   item = Item.create!(
     name: Faker::Lorem.words.join(" "),
     user: User.all.sample

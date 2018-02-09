@@ -1,5 +1,9 @@
 <br><br>
-<h1 class="text-center">My todos</h1>
+<% if current_user.id == @user.id %>
+  <h1 class="text-center">My todos</h1>
+<% else %>
+  <h1 class="text-center"><%= @user.name %>'s todos</h1>
+<% end %>
 <br>
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
@@ -27,6 +31,5 @@
 </div>
 
 <script>
-  editOrDeleteItem();
-
+  editOrDeleteItem($(".item_name"));
 </script>
