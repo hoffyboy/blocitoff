@@ -5,7 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-if !User.any?
   Tommy = User.create!(
     name: 'Tommy Chang',
     email:    'tommy@example.com',
@@ -33,7 +32,7 @@ if !User.any?
     password: '123456',
     confirmed_at: Time.now
   )
-end
+
 
 40.times do
   item = Item.create!(
