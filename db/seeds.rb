@@ -33,8 +33,22 @@
     confirmed_at: Time.now
   )
 
+  Ike = User.create(
+    name: 'Ike Huggins',
+    email:    'ie@example.com',
+    password: '123456',
+    confirmed_at: Time.now
+  )
 
-40.times do |index|
+  Jim = User.create(
+    name: 'Jim Flatlines',
+    email:    'Jim@example.com',
+    password: '123456',
+    confirmed_at: Time.now
+  )
+
+
+50.times do |index|
   item = Item.create!(
     name: Faker::Lorem.words.join(" "),
     user: User.all.sample,
