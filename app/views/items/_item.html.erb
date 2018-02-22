@@ -1,5 +1,5 @@
 <tr>
-  <% if current_user.id == item.user_id %>
+  <% if current_user&.id == item.user_id %>
     <td class="col-xs-9"><%= text_field(:item, :name, id: item.id, class: :item_name, value: item.name, autocomplete: :off) %></td>
     <td class="col-xs-2"><%= distance_of_time_in_words(Time.now - 7.days, item.created_at) %></td>
     <td class="col-xs-1"><%= link_to "", user_item_path(item.user_id, item.id), method: :delete, class: 'glyphicon glyphicon-ok', remote: true %></td>

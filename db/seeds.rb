@@ -5,28 +5,28 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-  Tommy = User.create!(
+  Tommy = User.create(
     name: 'Tommy Chang',
     email:    'tommy@example.com',
     password: '123456',
     confirmed_at: Time.now
   )
 
-  Albert = User.create!(
+  Albert = User.create(
     name: 'Albert Smith',
     email:    'albert@example.com',
     password: '123456',
     confirmed_at: Time.now
   )
 
-  Sammy = User.create!(
+  Sammy = User.create(
     name: 'Sammy Blong',
     email:    'sammy@example.com',
     password: '123456',
     confirmed_at: Time.now
   )
 
-  Beth = User.create!(
+  Beth = User.create(
     name: 'Beth Rainer',
     email:    'beth@example.com',
     password: '123456',
@@ -34,13 +34,15 @@
   )
 
 
-40.times do
+40.times do |index|
   item = Item.create!(
     name: Faker::Lorem.words.join(" "),
-    user: User.all.sample
+    user: User.all.sample,
+    created_at: rand(1.week.ago..Time.now)
   )
-
-  puts "Seed finished"
-  puts "#{User.count} users created"
-  puts "#{Item.count} items created"
+  p index
 end
+
+puts "Seed finished"
+puts "#{User.count} users created"
+puts "#{Item.count} items created"
