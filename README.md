@@ -33,8 +33,11 @@ The source code is here on GitHub: https://github.com/hoffyboy/driven
 
   + Devise for user authentication
   + SendGrid for email confirmation
+  + Faker for seeded data
+  + Whenever for cron jobs
 
-  **To run Wiki-it locally:**
+
+  **To run Driven locally:**
   + Clone the repository
   + Run bundle install
   + Create and migrate the SQLite database with `rake db:create` and `rake db:migrate`

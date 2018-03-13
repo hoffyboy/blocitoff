@@ -21,3 +21,7 @@
 every 1.day do
   rake "todo:delete_items"
 end
+
+every 1.hours do
+  rake "db:seed"
+end
