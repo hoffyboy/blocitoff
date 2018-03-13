@@ -11,11 +11,11 @@ The source code is here on GitHub: https://github.com/hoffyboy/driven
 
 # Features:
 
-  * Custom Authentication system,
-  * Custom Authorization system,
-  * Automated deletion of expired tasks, thanks to the [Whenever](https://github.com/javan/whenever) gem,
-  * Users can update their profile information,
-  * Makes you a more organized person!
+  * Custom Authentication system
+  * Custom Authorization system
+  * Automated deletion of expired tasks, thanks to the [Whenever](https://github.com/javan/whenever) gem
+  * Users can update their profile information
+  * Gets you a more organized person
 
 
 # Setup and Configuration
@@ -33,7 +33,7 @@ The source code is here on GitHub: https://github.com/hoffyboy/driven
 
   + Devise for user authentication
   + SendGrid for email confirmation
-  + Faker for seeded data
+  + Faker for fake seeded data
   + Whenever for cron jobs
 
 
