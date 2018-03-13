@@ -17,6 +17,9 @@ The source code is here on GitHub: https://github.com/hoffyboy/driven
   * Users can update their profile information,
   * Makes you a more organized person!
 
+
+# Setup and Configuration
+
   **Languages and Frameworks:** Ruby on Rails and Bootstrap
 
 
